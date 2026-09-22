@@ -1,6 +1,6 @@
-# claude-marketplace
+# bibutis-marketplace
 
-**[Live demo →](https://bibutikoley.github.io/claude-marketplace/)**
+**[Live demo →](https://bibutikoley.github.io/bibutis-marketplace/)**
 
 Cross-platform MCP tools for AI coding agents — mobile device
 automation, Apple Notes, and more. Currently ships two plugins: **mobile-mcp**,
@@ -37,9 +37,9 @@ Windsurf, Cline, Roo Code, Codex CLI, Gemini CLI, opencode — see
 Add the marketplace, then install the plugins:
 
 ```bash
-/plugin marketplace add bibutikoley/claude-marketplace
-/plugin install mobile-mcp@claude-marketplace
-/plugin install apple-notes-mcp@claude-marketplace
+/plugin marketplace add bibutikoley/bibutis-marketplace
+/plugin install mobile-mcp@bibutis-marketplace
+/plugin install apple-notes-mcp@bibutis-marketplace
 ```
 
 On the first tool call, click **OK** on any macOS Automation prompts
@@ -51,10 +51,10 @@ Pinned to `v0.5.1` (recommended — reproducible; substitute a newer tag to upgr
 
 ```bash
 # mobile-mcp
-claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/claude-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp" mobile-mcp
+claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp" mobile-mcp
 
 # apple-notes-mcp
-claude mcp add apple-notes-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/claude-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp" apple-notes-mcp
+claude mcp add apple-notes-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp" apple-notes-mcp
 ```
 
 To track `main` instead (mutable — you get updates without bumping, but
@@ -71,21 +71,21 @@ Option A — no clone (recommended, pinned to `v0.5.1`):
   "mcpServers": {
     "mobile-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/claude-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
+      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
     },
     "apple-notes-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/claude-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
+      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
     }
   }
 }
 ```
 
-Option B — local clone: `git clone https://github.com/bibutikoley/claude-marketplace.git`,
+Option B — local clone: `git clone https://github.com/bibutikoley/bibutis-marketplace.git`,
 then use `"--from", "<ABSOLUTE-PATH>/plugins/mobile-mcp"` or `plugins/apple-notes-mcp` as the `args` value above
 (absolute path required).
 
-Easiest of all: paste the self-install prompt from the [live site](https://bibutikoley.github.io/claude-marketplace/)
+Easiest of all: paste the self-install prompt from the [live site](https://bibutikoley.github.io/bibutis-marketplace/)
 to your agent and let it configure itself.
 
 opencode (`opencode.json` — project `./opencode.json` or global
@@ -96,11 +96,11 @@ opencode (`opencode.json` — project `./opencode.json` or global
   "mcp": {
     "mobile-mcp": {
       "type": "local",
-      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/claude-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
+      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
     },
     "apple-notes-mcp": {
       "type": "local",
-      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/claude-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"],
+      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"],
       "environment": {
         "APPLE_NOTES_MCP_ALLOWED_FOLDERS": ""
       }
@@ -111,7 +111,7 @@ opencode (`opencode.json` — project `./opencode.json` or global
 
 Full per-client guide (config file paths for Claude Desktop, Cursor, VS Code,
 Windsurf, Cline, Roo Code, Codex CLI, Gemini CLI, opencode, plus the VS Code `servers`,
-Codex TOML, and opencode `mcp` variants): see the [live site](https://bibutikoley.github.io/claude-marketplace/)
+Codex TOML, and opencode `mcp` variants): see the [live site](https://bibutikoley.github.io/bibutis-marketplace/)
 or [`plugins/apple-notes-mcp/README.md`](plugins/apple-notes-mcp/README.md#other-agents).
 
 ## Contents

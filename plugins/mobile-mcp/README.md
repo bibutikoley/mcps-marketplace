@@ -102,21 +102,21 @@ Works out-of-the-box with any MCP-compliant client: **Claude Code**, **Claude De
 Install directly via the marketplace catalog:
 
 ```bash
-/plugin marketplace add bibutikoley/claude-marketplace
-/plugin install mobile-mcp@claude-marketplace
+/plugin marketplace add bibutikoley/bibutis-marketplace
+/plugin install mobile-mcp@bibutis-marketplace
 ```
 
 Or add locally:
 
 ```bash
-claude mcp add mobile-mcp -s user -- uv run --project /path/to/claude-marketplace/plugins/mobile-mcp main.py
+claude mcp add mobile-mcp -s user -- uv run --project /path/to/bibutis-marketplace/plugins/mobile-mcp main.py
 ```
 
 Or standalone without a clone, pinned to `v0.5.1` (recommended — reproducible;
 drop `@v0.5.1` to track `main`):
 
 ```bash
-claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/claude-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp" mobile-mcp
+claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp" mobile-mcp
 ```
 
 ### Claude Desktop
@@ -131,7 +131,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
       "args": [
         "run",
         "--project",
-        "/path/to/claude-marketplace/plugins/mobile-mcp",
+        "/path/to/bibutis-marketplace/plugins/mobile-mcp",
         "main.py"
       ]
     }
@@ -151,7 +151,7 @@ In `.cursor/mcp.json` or `.vscode/mcp.json`:
       "args": [
         "run",
         "--project",
-        "/path/to/claude-marketplace/plugins/mobile-mcp",
+        "/path/to/bibutis-marketplace/plugins/mobile-mcp",
         "main.py"
       ]
     }

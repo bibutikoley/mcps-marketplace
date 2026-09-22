@@ -118,7 +118,7 @@ class TestPinnedDocs(unittest.TestCase):
 class TestBumperHelpers(unittest.TestCase):
     SAMPLE = (
         "pinned to `v1.2.3` (drop `@v1.2.3` to track `main`)\n"
-        'run `uvx --from "git+https://github.com/x/claude-marketplace@v1.2.3#subdirectory=p" s`\n'
+        'run `uvx --from "git+https://github.com/x/bibutis-marketplace@v1.2.3#subdirectory=p" s`\n'
         "> Removed in v0.3.0 (were one-line aliases)\n"
         "keep releases (`@vX.Y.Z`)\n"
     )

@@ -29,11 +29,11 @@ DOC_FILES = [
 
 HISTORY_MARKER = "Removed in"
 
-PINNED_URL_RE = r"claude-marketplace@v\d+\.\d+\.\d+#subdirectory="
+PINNED_URL_RE = r"bibutis-marketplace@v\d+\.\d+\.\d+#subdirectory="
 # Prose @v mentions that are NOT part of a pinned URL (drop-@v notes,
 # ...@v ellipsis examples, <code>@v</code> labels). Placeholders like
 # @vX.Y.Z contain no digits and never match.
-PROSE_AT_VERSION_RE = r"(?<!claude-marketplace)@v\d+\.\d+\.\d+"
+PROSE_AT_VERSION_RE = r"(?<!bibutis-marketplace)@v\d+\.\d+\.\d+"
 PROSE_CODE_TAG_RE = r"(<code>)v\d+\.\d+\.\d+(</code>)"
 PROSE_SPAN_TAG_RE = r'(<span class="version">)v\d+\.\d+\.\d+(</span>)'
 
@@ -76,7 +76,7 @@ def bump_doc_text(text: str, version: str) -> tuple[str, dict[str, int]]:
 
     text, counts["pinned_urls"] = re.subn(
         PINNED_URL_RE,
-        f"claude-marketplace@v{version}#subdirectory=",
+        f"bibutis-marketplace@v{version}#subdirectory=",
         text,
     )
     text, counts["prose_at"] = re.subn(
