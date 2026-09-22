@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.5.3
+
+- Marketplace renamed `bibutis-marketplace` → `mcps-marketplace` (final
+  name; `v0.5.2` briefly carried `bibutis-marketplace` to clear the
+  Claude Code impersonation block on names containing "claude").
+  Re-add with `/plugin marketplace add bibutikoley/mcps-marketplace`
+  and reinstall as `mobile-mcp@mcps-marketplace` /
+  `apple-notes-mcp@mcps-marketplace`; old GitHub URLs redirect.
+
 ## v0.5.2
 
 - Marketplace renamed `claude-marketplace` → `bibutis-marketplace`:

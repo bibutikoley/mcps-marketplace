@@ -2,13 +2,13 @@
   "name": "mobile-mcp",
   "displayName": "Mobile MCP",
   "description": "Unified MCP server for Android (ADB) and iOS (Xcode simctl/devicectl) device control",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "author": {
     "name": "Bibuti Koley",
     "email": "bibutikoley@outlook.com"
   },
-  "homepage": "https://github.com/bibutikoley/bibutis-marketplace",
-  "repository": "https://github.com/bibutikoley/bibutis-marketplace",
+  "homepage": "https://github.com/bibutikoley/mcps-marketplace",
+  "repository": "https://github.com/bibutikoley/mcps-marketplace",
   "license": "MIT",
   "keywords": ["android", "ios", "adb", "simctl", "devicectl", "mobile", "emulator", "simulator", "mcp"]
 }

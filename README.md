@@ -1,6 +1,6 @@
-# bibutis-marketplace
+# mcps-marketplace
 
-**[Live demo →](https://bibutikoley.github.io/bibutis-marketplace/)**
+**[Live demo →](https://bibutikoley.github.io/mcps-marketplace/)**
 
 Cross-platform MCP tools for AI coding agents — mobile device
 automation, Apple Notes, and more. Currently ships two plugins: **mobile-mcp**,
@@ -37,9 +37,9 @@ Windsurf, Cline, Roo Code, Codex CLI, Gemini CLI, opencode — see
 Add the marketplace, then install the plugins:
 
 ```bash
-/plugin marketplace add bibutikoley/bibutis-marketplace
-/plugin install mobile-mcp@bibutis-marketplace
-/plugin install apple-notes-mcp@bibutis-marketplace
+/plugin marketplace add bibutikoley/mcps-marketplace
+/plugin install mobile-mcp@mcps-marketplace
+/plugin install apple-notes-mcp@mcps-marketplace
 ```
 
 On the first tool call, click **OK** on any macOS Automation prompts
@@ -47,45 +47,45 @@ On the first tool call, click **OK** on any macOS Automation prompts
 access the server needs.
 
 Standalone alternative (without the marketplace, no clone needed).
-Pinned to `v0.5.2` (recommended — reproducible; substitute a newer tag to upgrade):
+Pinned to `v0.5.3` (recommended — reproducible; substitute a newer tag to upgrade):
 
 ```bash
 # mobile-mcp
-claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/mobile-mcp" mobile-mcp
+claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.3#subdirectory=plugins/mobile-mcp" mobile-mcp
 
 # apple-notes-mcp
-claude mcp add apple-notes-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/apple-notes-mcp" apple-notes-mcp
+claude mcp add apple-notes-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.3#subdirectory=plugins/apple-notes-mcp" apple-notes-mcp
 ```
 
 To track `main` instead (mutable — you get updates without bumping, but
-builds are not reproducible), drop the `@v0.5.2` from the URL.
+builds are not reproducible), drop the `@v0.5.3` from the URL.
 
 ### Other agents
 
 Any MCP client can run the servers over stdio — no marketplace needed. Just `uv` installed (provides `uvx`).
 
-Option A — no clone (recommended, pinned to `v0.5.2`):
+Option A — no clone (recommended, pinned to `v0.5.3`):
 
 ```json
 {
   "mcpServers": {
     "mobile-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
+      "args": ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.3#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
     },
     "apple-notes-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
+      "args": ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.3#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
     }
   }
 }
 ```
 
-Option B — local clone: `git clone https://github.com/bibutikoley/bibutis-marketplace.git`,
+Option B — local clone: `git clone https://github.com/bibutikoley/mcps-marketplace.git`,
 then use `"--from", "<ABSOLUTE-PATH>/plugins/mobile-mcp"` or `plugins/apple-notes-mcp` as the `args` value above
 (absolute path required).
 
-Easiest of all: paste the self-install prompt from the [live site](https://bibutikoley.github.io/bibutis-marketplace/)
+Easiest of all: paste the self-install prompt from the [live site](https://bibutikoley.github.io/mcps-marketplace/)
 to your agent and let it configure itself.
 
 opencode (`opencode.json` — project `./opencode.json` or global
@@ -96,11 +96,11 @@ opencode (`opencode.json` — project `./opencode.json` or global
   "mcp": {
     "mobile-mcp": {
       "type": "local",
-      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
+      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.3#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
     },
     "apple-notes-mcp": {
       "type": "local",
-      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"],
+      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.3#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"],
       "environment": {
         "APPLE_NOTES_MCP_ALLOWED_FOLDERS": ""
       }
@@ -111,7 +111,7 @@ opencode (`opencode.json` — project `./opencode.json` or global
 
 Full per-client guide (config file paths for Claude Desktop, Cursor, VS Code,
 Windsurf, Cline, Roo Code, Codex CLI, Gemini CLI, opencode, plus the VS Code `servers`,
-Codex TOML, and opencode `mcp` variants): see the [live site](https://bibutikoley.github.io/bibutis-marketplace/)
+Codex TOML, and opencode `mcp` variants): see the [live site](https://bibutikoley.github.io/mcps-marketplace/)
 or [`plugins/apple-notes-mcp/README.md`](plugins/apple-notes-mcp/README.md#other-agents).
 
 ## Contents
@@ -128,7 +128,7 @@ or [`plugins/apple-notes-mcp/README.md`](plugins/apple-notes-mcp/README.md#other
 
 ## Versioning
 
-Single release train: `0.5.2` everywhere — `marketplace.json`, each
+Single release train: `0.5.3` everywhere — `marketplace.json`, each
 plugin's `plugin.json` / `pyproject.toml`, the MCP server versions
 (derived from `pyproject.toml` via installed package metadata at runtime,
 with a source-checkout fallback), `.mcp.json` server keys, and the pinned
@@ -140,7 +140,7 @@ the release-system suite `tests/test_release.py`. CI installs from the
 per-plugin `uv.lock` files (`uv sync --locked`), so
 `uv sync --project plugins/<name>` reproduces CI exactly. All install
 snippets default to the pinned
-`git+https://...@v0.5.2#subdirectory=...` form; drop the `@v0.5.2` to
+`git+https://...@v0.5.3#subdirectory=...` form; drop the `@v0.5.3` to
 track `main`. History prose (`Removed in v0.3.0`, CHANGELOG headings) is
 never auto-stamped. Tag the release after CI passes (`git tag vX.Y.Z`).
 

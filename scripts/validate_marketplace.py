@@ -48,7 +48,7 @@ MCP_SERVER_DYNAMIC_RE = re.compile(
 PYPROJECT_NAME_RE = re.compile(r'(?m)^name\s*=\s*["\']([^"\']+)["\']')
 PYPROJECT_VERSION_RE = re.compile(r'(?m)^version\s*=\s*["\']([^"\']+)["\']')
 PYPROJECT_DESC_RE = re.compile(r'(?m)^description\s*=\s*["\']([^"\']+)["\']')
-PINNED_URL_RE = re.compile(r"bibutis-marketplace@v(\d+\.\d+\.\d+)#subdirectory=")
+PINNED_URL_RE = re.compile(r"mcps-marketplace@v(\d+\.\d+\.\d+)#subdirectory=")
 AT_VERSION_RE = re.compile(r"@v(\d+\.\d+\.\d+)")
 BACKTICK_VERSION_RE = re.compile(r"`@?v?(\d+\.\d+\.\d+)`")
 CODE_TAG_VERSION_RE = re.compile(r"<code>@?v(\d+\.\d+\.\d+)</code>")
@@ -193,7 +193,7 @@ def check_doc_files(train_version: str) -> None:
             continue
         urls = PINNED_URL_RE.findall(text)
         if not urls:
-            fail(f"{rel}: no pinned bibutis-marketplace@vX.Y.Z URLs found")
+            fail(f"{rel}: no pinned mcps-marketplace@vX.Y.Z URLs found")
         for v in urls:
             if v != train_version:
                 fail(

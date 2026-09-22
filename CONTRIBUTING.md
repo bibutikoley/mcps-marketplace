@@ -80,7 +80,7 @@ Then wire it into the train:
    `scripts/verify.sh`.
 4. Add its directory under the `uv` ecosystem in `.github/dependabot.yml`.
 5. Document it with a pinned install snippet
-   (`uvx --from "git+https://github.com/bibutikoley/bibutis-marketplace@vX.Y.Z#subdirectory=plugins/<name>"`)
+   (`uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@vX.Y.Z#subdirectory=plugins/<name>"`)
    in the stamped docs above — `bump_version.py` maintains those pins.
 
 ## Security

@@ -33,7 +33,7 @@ export default defineConfig({
   // GitHub Pages project sites are served under /<repo-name>/, not from the
   // root. Set this to your exact repo name so the built asset URLs resolve.
   // (For a user site — a repo named <user>.github.io — use base: '/' instead.)
-  base: '/bibutis-marketplace/',
+  base: '/mcps-marketplace/',
   server: {
     // Bind the dev server to loopback only. The Vite dev server enables HMR, so
     // it must never be reachable over the network. Override deliberately with
