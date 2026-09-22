@@ -40,7 +40,7 @@
     <div class="content" id="top">
       <header class="hero">
         <p class="eyebrow" data-reveal>
-          <span class="version">v0.5.1</span>
+          <span class="version">v0.5.2</span>
           <span class="eyebrow-text">Cross-platform MCP tools for AI coding agents</span>
         </p>
 
@@ -104,11 +104,11 @@
   "mcpServers": {
     "mobile-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
+      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
     },
     "apple-notes-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"],
+      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"],
       "env": {
         "APPLE_NOTES_MCP_ALLOWED_FOLDERS": ""
       }
@@ -153,7 +153,7 @@
                   <h3>mobile-mcp</h3>
                   <p>Android &amp; iOS automation</p>
                 </div>
-                <span class="version">v0.5.1</span>
+                <span class="version">v0.5.2</span>
               </div>
               <p class="card-copy">
                 Unified cross-platform device automation for AI agents. Control both
@@ -193,7 +193,7 @@
                   <h3>apple-notes-mcp</h3>
                   <p>Local Apple Notes CRUD</p>
                 </div>
-                <span class="version">v0.5.1</span>
+                <span class="version">v0.5.2</span>
               </div>
               <p class="card-copy">
                 MCP server giving any agent CRUD access to Apple Notes —
@@ -262,8 +262,8 @@ Step 1 — Prerequisite check. Run `uvx --version`. If uvx is missing, STOP and 
 
 Step 2 — Detect your client and pick ONE config target (default to global/user scope unless I ask for project scope):
 - Claude Code CLI: run:
-  claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp" mobile-mcp
-  claude mcp add apple-notes-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp" apple-notes-mcp
+  claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/mobile-mcp" mobile-mcp
+  claude mcp add apple-notes-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/apple-notes-mcp" apple-notes-mcp
   then skip to Step 5.
 - Claude Desktop: file ~/Library/Application Support/Claude/claude_desktop_config.json, JSON shape {"mcpServers": {...}}.
 - Cursor: file ~/.cursor/mcp.json (global) or .cursor/mcp.json in the current project, JSON shape {"mcpServers": {...}}.
@@ -281,10 +281,10 @@ Step 3 — Back up, then merge. If the file exists, back it up with a .bak suffi
 Entry values (default, no clone needed):
 - mobile-mcp:
   command: uvx
-  args: ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
+  args: ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
 - apple-notes-mcp:
   command: uvx
-  args: ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
+  args: ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
 
 If I say I have a local clone of bibutikoley/bibutis-marketplace, use it instead: replace the --from value with the absolute path to its plugins/mobile-mcp or plugins/apple-notes-mcp directory (absolute path only, never relative).
 
@@ -318,11 +318,11 @@ Step 5 — Tell me how to activate in THIS client (fully quit and reopen Claude 
   "mcpServers": {
     "mobile-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
+      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
     },
     "apple-notes-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"],
+      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"],
       "env": {
         "APPLE_NOTES_MCP_ALLOWED_FOLDERS": ""
       }
@@ -347,11 +347,11 @@ Step 5 — Tell me how to activate in THIS client (fully quit and reopen Claude 
   "servers": {
     "mobile-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
+      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
     },
     "apple-notes-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
+      "args": ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
     }
   }
 }</code></pre>
@@ -371,11 +371,11 @@ Step 5 — Tell me how to activate in THIS client (fully quit and reopen Claude 
               </div>
               <pre><code id="codex-config" data-lang="toml">[mcp_servers.mobile-mcp]
 command = "uvx"
-args = ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
+args = ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
 
 [mcp_servers.apple-notes-mcp]
 command = "uvx"
-args = ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]</code></pre>
+args = ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]</code></pre>
             </div>
 
             <div class="code-card" data-reveal>
@@ -394,11 +394,11 @@ args = ["--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1
   "mcp": {
     "mobile-mcp": {
       "type": "local",
-      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
+      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/mobile-mcp", "mobile-mcp"]
     },
     "apple-notes-mcp": {
       "type": "local",
-      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.1#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"],
+      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/bibutis-marketplace@v0.5.2#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"],
       "environment": {
         "APPLE_NOTES_MCP_ALLOWED_FOLDERS": ""
       }

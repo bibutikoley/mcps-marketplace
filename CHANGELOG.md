@@ -1,6 +1,12 @@
 # Changelog
 
-## Unreleased
+## v0.5.2
+
+- Marketplace renamed `claude-marketplace` → `bibutis-marketplace`:
+  names containing "claude" are blocked by Claude Code as impersonation.
+  Re-add with `/plugin marketplace add bibutikoley/bibutis-marketplace`
+  and reinstall as `mobile-mcp@bibutis-marketplace` /
+  `apple-notes-mcp@bibutis-marketplace`; old GitHub URLs redirect.
 
 ## v0.5.1
 
