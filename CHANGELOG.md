@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.4
+
+- Documentation refresh for the `mcps-marketplace` rename (install
+  snippets, live site, repository description); no functional changes.
+
 ## v0.5.3
 
 - Marketplace renamed `bibutis-marketplace` → `mcps-marketplace` (final

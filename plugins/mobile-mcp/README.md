@@ -112,11 +112,11 @@ Or add locally:
 claude mcp add mobile-mcp -s user -- uv run --project /path/to/mcps-marketplace/plugins/mobile-mcp main.py
 ```
 
-Or standalone without a clone, pinned to `v0.5.3` (recommended — reproducible;
-drop `@v0.5.3` to track `main`):
+Or standalone without a clone, pinned to `v0.5.4` (recommended — reproducible;
+drop `@v0.5.4` to track `main`):
 
 ```bash
-claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.3#subdirectory=plugins/mobile-mcp" mobile-mcp
+claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/mobile-mcp" mobile-mcp
 ```
 
 ### Claude Desktop
