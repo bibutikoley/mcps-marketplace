@@ -2,7 +2,7 @@
   "name": "chrome-mcp",
   "displayName": "Chrome MCP",
   "description": "Local Chrome automation over CDP: tabs, navigation, screenshots, interaction, history and bookmarks",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "author": {
     "name": "Bibuti Koley",
     "email": "bibutikoley@outlook.com"

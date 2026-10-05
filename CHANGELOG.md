@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.6.0
 
 - New `chrome-mcp` plugin (`plugins/chrome-mcp/`): local Chrome automation
   over CDP with 31 tools (tabs, navigation, screenshots, `ref_N` page
@@ -11,6 +11,9 @@
   `chrome_inject_script`, non-GET `chrome_network_request`,
   `chrome_bookmark_delete`, `record_replay_flow_run`) require
   `confirm=true`, matching the marketplace safety model.
+- Dependency maintenance: `markdown` 3.10.3 → 3.11 (apple-notes-mcp),
+  `setuptools` floor raised to `>=84.0.0` (all plugins), site npm
+  minor/patch refresh.
 
 ## v0.5.4
 

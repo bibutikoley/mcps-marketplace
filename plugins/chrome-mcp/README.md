@@ -4,14 +4,14 @@ Local Chrome automation for AI coding agents. Drives **your real Chrome**
 (current profile, logins, settings intact) over the Chrome DevTools Protocol —
 no extension install, no separate browser process, no cloud, no downloads.
 
-Pinned to `v0.5.4` (recommended — reproducible; substitute a newer tag to upgrade):
+Pinned to `v0.6.0` (recommended — reproducible; substitute a newer tag to upgrade):
 
 ```bash
-claude mcp add chrome-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp" chrome-mcp
+claude mcp add chrome-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.6.0#subdirectory=plugins/chrome-mcp" chrome-mcp
 ```
 
 To track `main` instead (mutable — you get updates without bumping, but
-builds are not reproducible), drop the `@v0.5.4` from the URL.
+builds are not reproducible), drop the `@v0.6.0` from the URL.
 
 Any MCP client over stdio (no marketplace needed):
 
@@ -20,7 +20,7 @@ Any MCP client over stdio (no marketplace needed):
   "mcpServers": {
     "chrome-mcp": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp", "chrome-mcp"]
+      "args": ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.6.0#subdirectory=plugins/chrome-mcp", "chrome-mcp"]
     }
   }
 }

@@ -1,6 +1,6 @@
 [project]
 name = "chrome-mcp"
-version = "0.5.4"
+version = "0.6.0"
 description = "Local Chrome automation over CDP: tabs, navigation, screenshots, interaction, history and bookmarks"
 requires-python = ">=3.12"
 dependencies = [
