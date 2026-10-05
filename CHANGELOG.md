@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+- New `chrome-mcp` plugin (`plugins/chrome-mcp/`): local Chrome automation
+  over CDP with 31 tools (tabs, navigation, screenshots, `ref_N` page
+  model, computer/click/fill/keyboard interaction, JS eval, console,
+  network capture/request, history, bookmarks, dialogs, downloads,
+  performance tracing, GIF recording, userscripts, record-replay flows).
+  Destructive tools (`chrome_close_tabs`, `chrome_javascript`,
+  `chrome_inject_script`, non-GET `chrome_network_request`,
+  `chrome_bookmark_delete`, `record_replay_flow_run`) require
+  `confirm=true`, matching the marketplace safety model.
+
 ## v0.5.4
 
 - Documentation refresh for the `mcps-marketplace` rename (install

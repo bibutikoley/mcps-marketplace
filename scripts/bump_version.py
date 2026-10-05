@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PLUGINS = ["mobile-mcp", "apple-notes-mcp"]
+PLUGINS = ["mobile-mcp", "apple-notes-mcp", "chrome-mcp"]
 
 # Living docs that carry the current version. CHANGELOG.md is history
 # and is intentionally NOT in this list (same list as validate_marketplace).
@@ -24,6 +24,7 @@ DOC_FILES = [
     ROOT / "README.md",
     ROOT / "plugins" / "mobile-mcp" / "README.md",
     ROOT / "plugins" / "apple-notes-mcp" / "README.md",
+    ROOT / "plugins" / "chrome-mcp" / "README.md",
     ROOT / "site" / "index.html",
 ]
 

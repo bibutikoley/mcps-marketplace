@@ -3,14 +3,17 @@
 **[Live demo →](https://bibutikoley.github.io/mcps-marketplace/)**
 
 Cross-platform MCP tools for AI coding agents — mobile device
-automation, Apple Notes, and more. Currently ships two plugins: **mobile-mcp**,
+automation, Apple Notes, and local Chrome automation. Currently ships three plugins: **mobile-mcp**,
 a unified MCP server for cross-platform mobile device control covering
 both Android (ADB + `android` CLI) and iOS (Xcode `simctl` + `devicectl` +
 native Quartz UI automation; see
 [`plugins/mobile-mcp/README.md`](plugins/mobile-mcp/README.md)) —
-and **apple-notes-mcp**, an MCP server giving CRUD access to Apple Notes
+**apple-notes-mcp**, an MCP server giving CRUD access to Apple Notes
 on macOS (Python + `uv` + the official `mcp` SDK, driving Notes.app
-through JXA).
+through JXA) —
+and **chrome-mcp**, a local Chrome automation server driving your real
+Chrome over CDP (tabs, navigation, screenshots, interaction, history,
+bookmarks; see [`plugins/chrome-mcp/README.md`](plugins/chrome-mcp/README.md)).
 No RAG, no vector index, no Full Disk Access: Notes.app is the source of
 truth, queried live on every call, all locally. Works with Claude Code
 natively, and with any other MCP client (Claude Desktop, Cursor, VS Code,
@@ -23,6 +26,7 @@ Windsurf, Cline, Roo Code, Codex CLI, Gemini CLI, opencode — see
 - **apple-notes-mcp:** macOS with Notes.app and Automation permissions
 - **mobile-mcp (Android):** Android SDK command-line / platform-tools (`adb`) in `PATH`, USB debugging enabled or Android Emulator
 - **mobile-mcp (iOS):** macOS with Xcode 15+ (`xcrun simctl` for Simulators, `xcrun devicectl` for physical iOS 17+ devices)
+- **chrome-mcp:** desktop Chrome/Chromium launched with `--remote-debugging-port=9222` (or set `CHROME_MCP_PORT`)
 
 > [!NOTE]
 > By default `apple-notes-mcp` has access to **all** your Apple Notes.
@@ -40,6 +44,7 @@ Add the marketplace, then install the plugins:
 /plugin marketplace add bibutikoley/mcps-marketplace
 /plugin install mobile-mcp@mcps-marketplace
 /plugin install apple-notes-mcp@mcps-marketplace
+/plugin install chrome-mcp@mcps-marketplace
 ```
 
 On the first tool call, click **OK** on any macOS Automation prompts
@@ -55,6 +60,11 @@ claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutiko
 
 # apple-notes-mcp
 claude mcp add apple-notes-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/apple-notes-mcp" apple-notes-mcp
+```
+
+```bash
+# chrome-mcp (start Chrome with --remote-debugging-port=9222 first)
+claude mcp add chrome-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp" chrome-mcp
 ```
 
 To track `main` instead (mutable — you get updates without bumping, but
@@ -76,13 +86,18 @@ Option A — no clone (recommended, pinned to `v0.5.4`):
     "apple-notes-mcp": {
       "command": "uvx",
       "args": ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
+    },
+    "chrome-mcp": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp", "chrome-mcp"]
     }
   }
 }
 ```
 
 Option B — local clone: `git clone https://github.com/bibutikoley/mcps-marketplace.git`,
-then use `"--from", "<ABSOLUTE-PATH>/plugins/mobile-mcp"` or `plugins/apple-notes-mcp` as the `args` value above
+then use `"--from", "<ABSOLUTE-PATH>/plugins/mobile-mcp"`, `plugins/apple-notes-mcp`,
+or `plugins/chrome-mcp` as the `args` value above
 (absolute path required).
 
 Easiest of all: paste the self-install prompt from the [live site](https://bibutikoley.github.io/mcps-marketplace/)
@@ -104,6 +119,10 @@ opencode (`opencode.json` — project `./opencode.json` or global
       "environment": {
         "APPLE_NOTES_MCP_ALLOWED_FOLDERS": ""
       }
+    },
+    "chrome-mcp": {
+      "type": "local",
+      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp", "chrome-mcp"]
     }
   }
 }
@@ -123,6 +142,8 @@ or [`plugins/apple-notes-mcp/README.md`](plugins/apple-notes-mcp/README.md#other
 | `plugins/apple-notes-mcp/README.md` | Tool reference and behavior notes |
 | `plugins/mobile-mcp/` | The plugin (Unified Android + iOS mobile device automation) |
 | `plugins/mobile-mcp/README.md` | Tool reference, agent loop, and security model |
+| `plugins/chrome-mcp/` | The plugin (local Chrome automation over CDP) |
+| `plugins/chrome-mcp/README.md` | Tool reference, CDP setup, and security model |
 | `site/` | Landing page (Vite + Three.js, deployed to GitHub Pages — see [site/README.md](site/README.md)) |
 | `CONTRIBUTING.md` | Dev setup, the single verify command, release train, adding a plugin |
 

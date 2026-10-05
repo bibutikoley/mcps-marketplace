@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
 
-PLUGINS = ["mobile-mcp", "apple-notes-mcp"]
+PLUGINS = ["mobile-mcp", "apple-notes-mcp", "chrome-mcp"]
 
 # Living docs that carry the current pinned version (URLs + prose).
 # CHANGELOG.md is history and is intentionally NOT in this list.
@@ -29,6 +29,7 @@ DOC_FILES = [
     ROOT / "README.md",
     ROOT / "plugins" / "mobile-mcp" / "README.md",
     ROOT / "plugins" / "apple-notes-mcp" / "README.md",
+    ROOT / "plugins" / "chrome-mcp" / "README.md",
     ROOT / "site" / "index.html",
 ]
 

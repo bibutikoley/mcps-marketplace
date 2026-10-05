@@ -1,0 +1,14 @@
+{
+  "name": "chrome-mcp",
+  "displayName": "Chrome MCP",
+  "description": "Local Chrome automation over CDP: tabs, navigation, screenshots, interaction, history and bookmarks",
+  "version": "0.5.4",
+  "author": {
+    "name": "Bibuti Koley",
+    "email": "bibutikoley@outlook.com"
+  },
+  "homepage": "https://github.com/bibutikoley/mcps-marketplace",
+  "repository": "https://github.com/bibutikoley/mcps-marketplace",
+  "license": "MIT",
+  "keywords": ["chrome", "cdp", "browser", "automation", "screenshot", "tabs", "history", "bookmarks", "mcp"]
+}

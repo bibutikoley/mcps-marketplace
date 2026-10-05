@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="A curated marketplace of MCP plugins that give AI coding agents new superpowers. One-command installs for mobile-mcp (Android & iOS device automation) and apple-notes-mcp (Apple Notes CRUD on macOS). 100% local, zero cloud daemons." />
+    <meta name="description" content="A curated marketplace of MCP plugins that give AI coding agents new superpowers. One-command installs for mobile-mcp (Android & iOS device automation), apple-notes-mcp (Apple Notes CRUD on macOS), and chrome-mcp (local Chrome automation over CDP). 100% local, zero cloud daemons." />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="theme-color" content="#06070b" />
     <title>mcps-marketplace — Superpowers for your AI agent</title>
@@ -48,8 +48,8 @@
 
         <p class="lede" data-reveal>
           A curated marketplace of production-grade MCP plugins. One command installs
-          unified <strong>Android&nbsp;&amp;&nbsp;iOS automation</strong> and local
-          <strong>Apple&nbsp;Notes&nbsp;CRUD</strong> into Claude Code, Cursor, VS&nbsp;Code,
+          unified <strong>Android&nbsp;&amp;&nbsp;iOS automation</strong>, local
+          <strong>Apple&nbsp;Notes&nbsp;CRUD</strong>, and <strong>Chrome automation</strong> into Claude Code, Cursor, VS&nbsp;Code,
           Windsurf, and any other MCP client. Everything runs on-device.
         </p>
 
@@ -99,7 +99,8 @@
             </div>
             <pre class="terminal-body"><code id="install-cmd" data-lang="shell">/plugin marketplace add bibutikoley/mcps-marketplace
 /plugin install mobile-mcp@mcps-marketplace
-/plugin install apple-notes-mcp@mcps-marketplace</code></pre>
+/plugin install apple-notes-mcp@mcps-marketplace
+/plugin install chrome-mcp@mcps-marketplace</code></pre>
             <pre class="terminal-body" id="install-cmd-other" hidden><code data-lang="json">{
   "mcpServers": {
     "mobile-mcp": {
@@ -122,12 +123,12 @@
 
         <p class="notice" data-reveal>
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3.2v5.1c0 4.7-3.2 8.9-7.5 10.7-4.3-1.8-7.5-6-7.5-10.7V6.2z"/><path d="M9.2 12.2l2 2 3.6-4"/></svg>
-          <span><strong>Local &amp; secure.</strong> First-party APIs only — Apple JXA, Android ADB, Xcode <code>simctl</code>/<code>devicectl</code>. No telemetry, no remote proxies, no cloud daemons.</span>
+          <span><strong>Local &amp; secure.</strong> First-party APIs only — Apple JXA, Android ADB, Xcode <code>simctl</code>/<code>devicectl</code>, Chrome DevTools Protocol. No telemetry, no remote proxies, no cloud daemons.</span>
         </p>
 
         <ul class="stats" data-reveal aria-label="At a glance">
-          <li><strong>2</strong><span>flagship plugins</span></li>
-          <li><strong>77</strong><span>typed MCP tools</span></li>
+          <li><strong>3</strong><span>flagship plugins</span></li>
+          <li><strong>108</strong><span>typed MCP tools</span></li>
           <li><strong>100%</strong><span>on-device &amp; local</span></li>
           <li><strong>0</strong><span>cloud daemons</span></li>
         </ul>
@@ -139,7 +140,7 @@
             <p class="section-kicker">Plugins</p>
             <h2 id="plugins-h">Production-grade plugins, ready today.</h2>
             <p class="section-intro">
-              Two plugins ship now, more on the way. Each one is versioned, isolated,
+              Three plugins ship now, more on the way. Each one is versioned, isolated,
               and installs with a single command.
             </p>
           </div>
@@ -217,6 +218,40 @@
               <p class="card-link"><a href="https://github.com/bibutikoley/mcps-marketplace/tree/main/plugins/apple-notes-mcp" target="_blank" rel="noopener noreferrer">View apple-notes-mcp docs &amp; guide<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg></a></p>
             </article>
 
+            <article class="card card-plugin" data-reveal>
+              <div class="card-head">
+                <span class="plugin-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+                </span>
+                <div class="plugin-title">
+                  <h3>chrome-mcp</h3>
+                  <p>Local Chrome automation</p>
+                </div>
+                <span class="version">v0.5.4</span>
+              </div>
+              <p class="card-copy">
+                Drive your real Chrome over the DevTools Protocol — tabs,
+                navigation, screenshots, <code>ref</code> interaction, JS eval,
+                console, network, history, and bookmarks. No extension, no
+                separate browser, no cloud.
+              </p>
+              <ul class="tools" aria-label="Tools">
+                <li>chrome_read_page</li>
+                <li>chrome_screenshot</li>
+                <li>chrome_navigate</li>
+                <li>chrome_computer</li>
+                <li>chrome_javascript</li>
+                <li>chrome_console</li>
+                <li>chrome_history</li>
+                <li>chrome_bookmark_search</li>
+                <li>chrome_network_request</li>
+                <li>chrome_gif_recorder</li>
+                <li>performance_start_trace</li>
+                <li class="more">+20 more</li>
+              </ul>
+              <p class="card-link"><a href="https://github.com/bibutikoley/mcps-marketplace/tree/main/plugins/chrome-mcp" target="_blank" rel="noopener noreferrer">View chrome-mcp docs &amp; guide<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg></a></p>
+            </article>
+
             <article class="card card-ghost" data-reveal aria-label="More plugins coming soon">
               <div class="ghost-copy">
                 <h3>Your plugin could be next</h3>
@@ -254,16 +289,18 @@
               <span class="details-hint" aria-hidden="true"></span>
             </summary>
             <div class="config-block">
-              <pre class="plain-pre"><code id="agent-prompt">You are an AI agent running inside an MCP client (Claude Code, Claude Desktop, Cursor, VS Code with Copilot, Windsurf Cascade, Cline, Roo Code, Codex CLI, Gemini CLI, opencode, or another MCP-compatible app). Configure the "mobile-mcp" and "apple-notes-mcp" MCP servers for YOURSELF — write them into the MCP configuration of the client you are currently running in. Make the edit yourself; do not just print instructions.
+              <pre class="plain-pre"><code id="agent-prompt">You are an AI agent running inside an MCP client (Claude Code, Claude Desktop, Cursor, VS Code with Copilot, Windsurf Cascade, Cline, Roo Code, Codex CLI, Gemini CLI, opencode, or another MCP-compatible app). Configure the "mobile-mcp", "apple-notes-mcp", and "chrome-mcp" MCP servers for YOURSELF — write them into the MCP configuration of the client you are currently running in. Make the edit yourself; do not just print instructions.
 
 Step 1 — Prerequisite check. Run `uvx --version`. If uvx is missing, STOP and tell me to install uv first from https://github.com/astral-sh/uv, then re-run this prompt once it is available.
 - For mobile-mcp: verify `adb` (Android) and/or `xcrun` (iOS) are installed.
 - For apple-notes-mcp: verify `uname -s` is `Darwin` (macOS with Notes.app).
+- For chrome-mcp: verify desktop Chrome/Chromium is installed and start it with --remote-debugging-port=9222.
 
 Step 2 — Detect your client and pick ONE config target (default to global/user scope unless I ask for project scope):
 - Claude Code CLI: run:
   claude mcp add mobile-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/mobile-mcp" mobile-mcp
   claude mcp add apple-notes-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/apple-notes-mcp" apple-notes-mcp
+  claude mcp add chrome-mcp -s user -- uvx --from "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp" chrome-mcp
   then skip to Step 5.
 - Claude Desktop: file ~/Library/Application Support/Claude/claude_desktop_config.json, JSON shape {"mcpServers": {...}}.
 - Cursor: file ~/.cursor/mcp.json (global) or .cursor/mcp.json in the current project, JSON shape {"mcpServers": {...}}.
@@ -276,7 +313,7 @@ Step 2 — Detect your client and pick ONE config target (default to global/user
 - opencode: file opencode.json — project ./opencode.json (or .opencode/opencode.json) or global ~/.config/opencode/opencode.json, JSON shape {"mcp": {...}} with type "local". NOTE: opencode does NOT use "mcpServers", "servers", "command"+"args", or "env" — it uses "mcp", "command" as one array, and "environment".
 - Anything else: ASK me which file your client reads for MCP servers before writing anything. If you cannot determine your client, ASK me instead of guessing.
 
-Step 3 — Back up, then merge. If the file exists, back it up with a .bak suffix first. Add the "mobile-mcp" and "apple-notes-mcp" entries and preserve every existing entry. Create parent folders if needed. Minimal new-file skeletons: {"mcpServers": {}} for mcpServers clients, {"servers": {}} for VS Code, {"mcp": {}} for opencode (plus "$schema": "https://opencode.ai/config.json"), and for Codex just the tables below in an empty file.
+Step 3 — Back up, then merge. If the file exists, back it up with a .bak suffix first. Add the "mobile-mcp", "apple-notes-mcp", and "chrome-mcp" entries and preserve every existing entry. Create parent folders if needed. Minimal new-file skeletons: {"mcpServers": {}} for mcpServers clients, {"servers": {}} for VS Code, {"mcp": {}} for opencode (plus "$schema": "https://opencode.ai/config.json"), and for Codex just the tables below in an empty file.
 
 Entry values (default, no clone needed):
 - mobile-mcp:
@@ -285,8 +322,11 @@ Entry values (default, no clone needed):
 - apple-notes-mcp:
   command: uvx
   args: ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
+- chrome-mcp:
+  command: uvx
+  args: ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp", "chrome-mcp"]
 
-If I say I have a local clone of bibutikoley/mcps-marketplace, use it instead: replace the --from value with the absolute path to its plugins/mobile-mcp or plugins/apple-notes-mcp directory (absolute path only, never relative).
+If I say I have a local clone of bibutikoley/mcps-marketplace, use it instead: replace the --from value with the absolute path to its plugins/mobile-mcp, plugins/apple-notes-mcp, or plugins/chrome-mcp directory (absolute path only, never relative).
 
 For apple-notes-mcp, if I give you a folder allowlist, add env {"APPLE_NOTES_MCP_ALLOWED_FOLDERS": "the comma-separated list I gave you"} to the entry — except opencode, where the key is "environment" (not "env").
 
@@ -326,6 +366,10 @@ Step 5 — Tell me how to activate in THIS client (fully quit and reopen Claude 
       "env": {
         "APPLE_NOTES_MCP_ALLOWED_FOLDERS": ""
       }
+    },
+    "chrome-mcp": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp", "chrome-mcp"]
     }
   }
 }</code></pre>
@@ -352,6 +396,10 @@ Step 5 — Tell me how to activate in THIS client (fully quit and reopen Claude 
     "apple-notes-mcp": {
       "command": "uvx",
       "args": ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
+    },
+    "chrome-mcp": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp", "chrome-mcp"]
     }
   }
 }</code></pre>
@@ -375,7 +423,11 @@ args = ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#su
 
 [mcp_servers.apple-notes-mcp]
 command = "uvx"
-args = ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]</code></pre>
+args = ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/apple-notes-mcp", "apple-notes-mcp"]
+
+[mcp_servers.chrome-mcp]
+command = "uvx"
+args = ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp", "chrome-mcp"]</code></pre>
             </div>
 
             <div class="code-card" data-reveal>
@@ -402,6 +454,10 @@ args = ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#su
       "environment": {
         "APPLE_NOTES_MCP_ALLOWED_FOLDERS": ""
       }
+    },
+    "chrome-mcp": {
+      "type": "local",
+      "command": ["uvx", "--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#subdirectory=plugins/chrome-mcp", "chrome-mcp"]
     }
   }
 }</code></pre>
@@ -443,6 +499,10 @@ args = ["--from", "git+https://github.com/bibutikoley/mcps-marketplace@v0.5.4#su
     "apple-notes-mcp": {
       "command": "uvx",
       "args": ["--from", "/ABSOLUTE/PATH/plugins/apple-notes-mcp", "apple-notes-mcp"]
+    },
+    "chrome-mcp": {
+      "command": "uvx",
+      "args": ["--from", "/ABSOLUTE/PATH/plugins/chrome-mcp", "chrome-mcp"]
     }
   }
 }</code></pre>

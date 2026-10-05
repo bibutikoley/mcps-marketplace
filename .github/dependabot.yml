@@ -4,6 +4,7 @@ updates:
     directories:
       - plugins/mobile-mcp
       - plugins/apple-notes-mcp
+      - plugins/chrome-mcp
     schedule:
       interval: weekly
     groups:

@@ -25,6 +25,16 @@
         "name": "Bibuti Koley",
         "email": "bibutikoley@outlook.com"
       }
+    },
+    {
+      "name": "chrome-mcp",
+      "source": "./plugins/chrome-mcp",
+      "description": "Local Chrome automation over CDP: tabs, navigation, screenshots, interaction, history and bookmarks",
+      "version": "0.5.4",
+      "author": {
+        "name": "Bibuti Koley",
+        "email": "bibutikoley@outlook.com"
+      }
     }
   ]
 }

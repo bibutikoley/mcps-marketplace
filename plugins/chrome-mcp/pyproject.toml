@@ -1,0 +1,25 @@
+[project]
+name = "chrome-mcp"
+version = "0.5.4"
+description = "Local Chrome automation over CDP: tabs, navigation, screenshots, interaction, history and bookmarks"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp>=1.0,<3",
+]
+
+[project.scripts]
+chrome-mcp = "main:run"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main", "chrome"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.12"
+show_error_codes = true

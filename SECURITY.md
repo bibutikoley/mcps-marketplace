@@ -1,8 +1,9 @@
 # Security policy
 
-This repository ships privileged local infrastructure (`mobile-mcp`) and a
+This repository ships privileged local infrastructure (`mobile-mcp`,
+`chrome-mcp`) and a
 data-access server (`apple-notes-mcp`). Anyone who can call their tools
-effectively holds the attached devices and the Notes library. Run pinned
+effectively holds the attached devices, the open browser, and the Notes library. Run pinned
 releases (`@vX.Y.Z`), keep your MCP client's tool-approval prompts on, and
 prefer test devices/emulators over daily-driver hardware.
 
@@ -103,6 +104,12 @@ Without `confirm=true` the call fails with a `confirm_required` error and
 | `update_note` | replaces an Apple Note's entire body |
 | `delete_note` | moves an Apple Note to Recently Deleted |
 | `delete_folder` | removes an empty Apple Notes folder |
+| `chrome_close_tabs` | closes real user tabs |
+| `chrome_javascript` | runs arbitrary JS in the tab (inherits logins/cookies) |
+| `chrome_inject_script` | evaluates + optionally persists JS for future loads |
+| `chrome_network_request` | side-effecting fetch with page cookies (non-GET only) |
+| `chrome_bookmark_delete` | deletes a bookmark |
+| `record_replay_flow_run` | executes stored JS steps |
 
 Everything else acts **immediately** once called: taps, swipes, text input,
 `launch_app`, `force_stop`, `install_apk`/`ios_install_app`, file
@@ -126,6 +133,24 @@ tool-approval flow — do not disable it for these servers.
   recoverable server-side.
 - OS permission needed: one macOS Automation grant for controlling
   Notes.app. No Full Disk Access, no network, no stored data.
+
+## Chrome automation
+
+- `chrome-mcp` talks to your real Chrome over the local debugger port
+  (`CHROME_MCP_HOST`, default `127.0.0.1`, and `CHROME_MCP_PORT`, default
+  `9222`). Keep the host loopback: the debugger has no authentication, so
+  never expose the port over a network boundary.
+- Only `http(s)` URLs are accepted for navigation, requests, and uploads.
+  `chrome://` pages cannot attach a debugger. Upload paths must be existing
+  real files (symlinks refused); install-style allowlists from mobile do not
+  apply because nothing is installed.
+- `chrome_javascript` / `chrome_inject_script` / `record_replay_flow_run`
+  execute arbitrary JS with the tab's privileges (sessions, cookies). They
+  need `confirm=true`, as do tab closing, non-GET page-context fetches, and
+  bookmark deletes. Screenshots, reads, history/bookmark search, console and
+  network capture summaries act immediately.
+- Bookmarks are edited in place with a `.bak` backup next to the file;
+  History is queried from a temp copy, never the live database.
 
 ## Apple Events / JXA
 
