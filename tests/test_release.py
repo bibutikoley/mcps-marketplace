@@ -13,6 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
+import auto_tag
 import bump_version
 import validate_marketplace as vm
 import validate_release as vr
@@ -375,6 +376,45 @@ class TestValidateRelease(unittest.TestCase):
         self.assertIn("verify.sh", text)
         # No silent generic-notes fallback.
         self.assertNotIn("Release ${GITHUB_REF_NAME}", text)
+
+
+class TestAutoTag(unittest.TestCase):
+    def test_train_version_from_catalog(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = _make_repo(Path(tmp), "0.6.0")
+            self.assertEqual(auto_tag.train_version(root), "0.6.0")
+
+    def test_train_version_rejects_divergence(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = _make_repo(Path(tmp), "0.6.0")
+            mp = root / ".claude-plugin" / "marketplace.json"
+            data = json.loads(mp.read_text(encoding="utf-8"))
+            data["plugins"][0]["version"] = "0.5.9"
+            mp.write_text(json.dumps(data), encoding="utf-8")
+            with self.assertRaises(ValueError):
+                auto_tag.train_version(root)
+
+    def test_release_ready_passes_and_missing_changelog_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = _make_repo(Path(tmp), "0.6.0")
+            self.assertEqual(auto_tag.release_ready("v0.6.0", root), [])
+            (root / "CHANGELOG.md").write_text("# Changelog\n\n")
+            self.assertNotEqual(auto_tag.release_ready("v0.6.0", root), [])
+
+    def test_run_skips_without_token(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = _make_repo(Path(tmp), "0.6.0")
+            # No token and no git remote involved: must no-op, never tag.
+            self.assertEqual(auto_tag.run(root, token=None), 0)
+
+    def test_ci_auto_tag_guarded_to_main_push(self):
+        text = CI_YML.read_text(encoding="utf-8")
+        self.assertIn("auto-tag", text)
+        self.assertIn("scripts/auto_tag.py", text)
+        self.assertIn("RELEASE_TOKEN", text)
+        self.assertIn("needs: [verify]", text)
+        self.assertIn("github.event_name == 'push'", text)
+        self.assertIn("refs/heads/main", text)
 
 
 if __name__ == "__main__":

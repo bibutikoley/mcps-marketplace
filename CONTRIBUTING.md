@@ -41,11 +41,21 @@ To release:
    `uv sync --locked` fails on the resulting stale `uv.lock`.
 4. A human renames `## Unreleased` to `## v<X.Y.Z>` in `CHANGELOG.md` —
    history prose is never auto-stamped.
-5. `./scripts/verify.sh`, commit, then tag `v<X.Y.Z>` and push the tag.
+5. `./scripts/verify.sh`, commit, and push to `main`. CI's `auto-tag`
+   job (after `verify` passes) runs `scripts/auto_tag.py`: if the train
+   version is untagged and `validate_release.py` passes, it creates and
+   pushes the `v<X.Y.Z>` tag, which triggers the release workflow below.
+   A manual `git tag v<X.Y.Z> && git push origin v<X.Y.Z>` works the same.
 6. `.github/workflows/release.yml` validates the tag against every
    manifest, re-runs `verify.sh`, and publishes a GitHub release from the
    matching changelog section — an empty or missing section fails the
    release.
+
+One-time setup for auto-tag: tags pushed with `GITHUB_TOKEN` do not
+trigger new workflow runs, so the push needs a fine-grained PAT with
+Contents read+write on this repo, stored as the `RELEASE_TOKEN` secret
+(`gh secret set RELEASE_TOKEN --body <token>`). Until it exists,
+`auto_tag.py` skips cleanly and tagging stays manual.
 
 ## Dependencies
 
