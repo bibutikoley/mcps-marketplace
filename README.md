@@ -169,7 +169,7 @@ never auto-stamped. Tag the release after CI passes (`git tag vX.Y.Z`).
 
 Each plugin pins reproducible installs with its own `uv.lock`
 (`uv sync --project plugins/<name>` reproduces CI exactly).
-`pyproject.toml` bounds are `mcp>=1.0,<3`, `markdown>=3.10.3,<4`,
+`pyproject.toml` bounds are `mcp>=2.0,<3`, `markdown>=3.11,<4`,
 `markdownify>=1.2.3,<2`: lower bounds are the oldest verified working
 releases, upper bounds hold back the next major. To upgrade a
 dependency, bump the bound, run `uv lock --project plugins/<name>`,

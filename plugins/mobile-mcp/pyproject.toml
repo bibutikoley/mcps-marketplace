@@ -4,7 +4,7 @@ version = "0.6.0"
 description = "Unified MCP server for Android (ADB) and iOS (Xcode simctl/devicectl) device control"
 requires-python = ">=3.12"
 dependencies = [
-    "mcp>=1.0,<3",
+    "mcp>=2.0,<3",
 ]
 
 [project.scripts]

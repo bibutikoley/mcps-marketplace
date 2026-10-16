@@ -131,7 +131,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "mcp", specifier = ">=1.0,<3" }]
+requires-dist = [{ name = "mcp", specifier = ">=2.0,<3" }]
 
 [[package]]
 name = "click"

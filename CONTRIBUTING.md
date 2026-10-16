@@ -59,7 +59,7 @@ Contents read+write on this repo, stored as the `RELEASE_TOKEN` secret
 
 ## Dependencies
 
-Bounds live in each plugin's `pyproject.toml` (e.g. `mcp>=1.0,<3`): lower
+Bounds live in each plugin's `pyproject.toml` (e.g. `mcp>=2.0,<3`): lower
 bounds are the oldest verified-working releases, upper bounds hold back the
 next major. To upgrade: adjust the bound, run
 `uv lock --upgrade-package <pkg> --project plugins/<name>`, and let the

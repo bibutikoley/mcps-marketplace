@@ -42,7 +42,7 @@ dependencies = [
 requires-dist = [
     { name = "markdown", specifier = ">=3.11,<4" },
     { name = "markdownify", specifier = ">=1.2.3,<2" },
-    { name = "mcp", specifier = ">=1.0,<3" },
+    { name = "mcp", specifier = ">=2.0,<3" },
 ]
 
 [[package]]
