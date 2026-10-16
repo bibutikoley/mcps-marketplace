@@ -12,6 +12,11 @@
   All plugin suites verified against `mcp==2.0.0`.
 - CI auto-tag: once a stamped train version lands on `main` and passes
   `verify`, `scripts/auto_tag.py` creates and pushes the `vX.Y.Z` tag.
+  Fixed on its first run: the annotated tag now carries an explicit
+  `github-actions[bot]` tagger identity (CI runners have none), git's
+  stderr is surfaced on failure, and the auto-tag checkout sets
+  `persist-credentials: false` so the persisted read-only `GITHUB_TOKEN`
+  no longer overrides `RELEASE_TOKEN` on the tag push.
 - Site: fixed HIGH npm advisory GHSA-68fv-2mgg-jv7q (`source-map-js` via
   `postcss`).
 
