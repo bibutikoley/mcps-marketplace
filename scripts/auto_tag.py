@@ -60,16 +60,41 @@ def release_ready(tag: str, root: Path = ROOT) -> list[str]:
     return vr.validate(tag, root)
 
 
+# Annotated tags need a tagger identity, and CI runners have none
+# configured; pass one explicitly so tagging never depends on runner state.
+TAGGER_NAME = "github-actions[bot]"
+TAGGER_EMAIL = "41898283+github-actions[bot]@users.noreply.github.com"
+
+
+def create_tag(tag: str, cwd: Path = ROOT) -> None:
+    """Create the annotated tag locally with the bot identity."""
+    result = subprocess.run(
+        [
+            "git",
+            "-c",
+            f"user.name={TAGGER_NAME}",
+            "-c",
+            f"user.email={TAGGER_EMAIL}",
+            "tag",
+            "-a",
+            tag,
+            "-m",
+            tag,
+        ],
+        cwd=cwd,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"git tag {tag} failed: {result.stderr.strip()[-2000:]}")
+
+
 def create_and_push_tag(
     tag: str, token: str, remote: str = "origin", cwd: Path = ROOT
 ) -> None:
     """Create the annotated tag and push it; tolerates a lost race."""
-    subprocess.run(
-        ["git", "tag", "-a", tag, "-m", tag],
-        cwd=cwd,
-        check=True,
-        capture_output=True,
-    )
+    create_tag(tag, cwd)
     push = subprocess.run(
         [
             "git",

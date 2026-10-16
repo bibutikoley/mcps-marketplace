@@ -5,11 +5,14 @@ version from marketplace.json itself — never hardcode it here.
 """
 
 import json
+import os
 import re
+import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
@@ -406,6 +409,62 @@ class TestAutoTag(unittest.TestCase):
             root = _make_repo(Path(tmp), "0.6.0")
             # No token and no git remote involved: must no-op, never tag.
             self.assertEqual(auto_tag.run(root, token=None), 0)
+
+    def test_create_tag_works_without_git_identity(self):
+        # CI runners have no user.name/user.email; `git tag -a` must not
+        # depend on them (regression: v0.6.1 auto-tag exited 128).
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            env = {
+                k: v
+                for k, v in os.environ.items()
+                if not k.startswith(("GIT_AUTHOR_", "GIT_COMMITTER_", "EMAIL"))
+            }
+            env.update(
+                GIT_CONFIG_GLOBAL=os.devnull,
+                GIT_CONFIG_NOSYSTEM="1",
+                GIT_CONFIG_COUNT="1",
+                GIT_CONFIG_KEY_0="user.useConfigOnly",
+                GIT_CONFIG_VALUE_0="true",
+            )
+            with mock.patch.dict(os.environ, env, clear=True):
+                subprocess.run(["git", "init", "-q"], cwd=repo, check=True)
+                subprocess.run(
+                    [
+                        "git",
+                        "-c",
+                        "user.name=t",
+                        "-c",
+                        "user.email=t@t",
+                        "commit",
+                        "-q",
+                        "--allow-empty",
+                        "-m",
+                        "init",
+                    ],
+                    cwd=repo,
+                    check=True,
+                )
+                auto_tag.create_tag("v9.9.9", cwd=repo)
+                tagger = subprocess.run(
+                    [
+                        "git",
+                        "for-each-ref",
+                        "--format=%(taggername)",
+                        "refs/tags/v9.9.9",
+                    ],
+                    cwd=repo,
+                    capture_output=True,
+                    text=True,
+                    check=True,
+                ).stdout.strip()
+            self.assertEqual(tagger, auto_tag.TAGGER_NAME)
+
+    def test_create_tag_failure_surfaces_git_stderr(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            # Not a git repository: the git error text must reach the log.
+            with self.assertRaisesRegex(RuntimeError, "not a git repository"):
+                auto_tag.create_tag("v9.9.9", cwd=Path(tmp))
 
     def test_ci_auto_tag_guarded_to_main_push(self):
         text = CI_YML.read_text(encoding="utf-8")
