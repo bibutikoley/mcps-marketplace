@@ -40,6 +40,9 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          # The persisted GITHUB_TOKEN extraheader (contents: read) would
+          # override the RELEASE_TOKEN embedded in the tag push URL.
+          persist-credentials: false
 
       - name: Setup Python
         uses: actions/setup-python@v6

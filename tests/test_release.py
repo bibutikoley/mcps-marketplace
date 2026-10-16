@@ -475,6 +475,14 @@ class TestAutoTag(unittest.TestCase):
         self.assertIn("github.event_name == 'push'", text)
         self.assertIn("refs/heads/main", text)
 
+    def test_ci_auto_tag_checkout_drops_persisted_token(self):
+        # A persisted GITHUB_TOKEN extraheader overrides the RELEASE_TOKEN
+        # in the push URL (regression: v0.6.1 push denied to
+        # github-actions[bot]).
+        text = CI_YML.read_text(encoding="utf-8")
+        job = text.split("\n  auto-tag:", 1)[1].split("\n  test-and-build:", 1)[0]
+        self.assertIn("persist-credentials: false", job)
+
 
 if __name__ == "__main__":
     unittest.main()
