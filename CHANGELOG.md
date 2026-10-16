@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.6.1
+
+- Dependency refresh: `mcp` 2.2.0 → 2.3.0 in `mobile-mcp` and
+  `apple-notes-mcp` (all three plugins now on 2.3.0), plus every outdated
+  transitive package (pydantic 2.14.1, starlette 1.8.0, uvicorn 0.54.0,
+  httpx2/httpcore2 2.13.1, cryptography 50.0.2, …); `markdown` 3.11.1 and
+  `soupsieve` 3.0.3 in `apple-notes-mcp`.
+- `mcp` lower bound raised `>=1.0` → `>=2.0` in every plugin: the servers
+  import `mcp.server.mcpserver.MCPServer`, which does not exist in 1.x.
+  All plugin suites verified against `mcp==2.0.0`.
+- CI auto-tag: once a stamped train version lands on `main` and passes
+  `verify`, `scripts/auto_tag.py` creates and pushes the `vX.Y.Z` tag.
+- Site: fixed HIGH npm advisory GHSA-68fv-2mgg-jv7q (`source-map-js` via
+  `postcss`).
+
 ## v0.6.0
 
 - New `chrome-mcp` plugin (`plugins/chrome-mcp/`): local Chrome automation
