@@ -4,8 +4,8 @@ version = "0.6.1"
 description = "MCP server giving Claude Code CRUD access to Apple Notes via AppleScript"
 requires-python = ">=3.12"
 dependencies = [
-    "markdown>=3.11,<4",
-    "markdownify>=1.2.3,<2",
+    "markdown>=3.11.3,<4",
+    "markdownify>=1.2.4,<2",
     "mcp>=2.0,<3",
 ]
 
